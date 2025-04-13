@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { CpuArchitecture } from '../components/ui/cpu-architecture';
 ---
 
 <Layout>
@@ -26,6 +27,28 @@ import Layout from '../layouts/Layout.astro';
           <li>The server handling that subdomain is currently down or unavailable</li>
           <li>Scheduled maintenance is in progress for the requested service</li>
         </ul>
+      </div>
+
+      <div class="section server-load-section">
+        <h2>Server Resource Management</h2>
+        <div class="resource-explanation">
+          <div class="resource-text">
+            <p>
+              Sometimes our servers may be temporarily overloaded due to high traffic or resource-intensive operations. When this happens:
+            </p>
+            <ul>
+              <li>The reverse proxy may temporarily refuse new connections</li>
+              <li>Requests might time out while waiting for server resources</li>
+              <li>The system automatically redirects to this error page to prevent cascading failures</li>
+            </ul>
+            <p>
+              Our monitoring systems automatically detect these situations and will allocate additional resources or redistribute the load when needed. Most overload situations resolve within minutes without manual intervention.
+            </p>
+          </div>
+          <div class="cpu-visualization">
+            <CpuArchitecture client:load width="280px" height="180px" text="CPU" />
+          </div>
+        </div>
       </div>
 
       <div class="section">
@@ -61,6 +84,12 @@ import Layout from '../layouts/Layout.astro';
             <summary>Is the subdomain I'm trying to access valid?</summary>
             <div class="accordion-content">
               <p>Our system hosts numerous services across different subdomains. Check that you've entered the URL correctly, or contact support if you believe you should have access to a specific subdomain.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is the server overloaded right now?</summary>
+            <div class="accordion-content">
+              <p>During peak usage times, our servers may experience temporary high load. The system is designed to handle these situations by automatically scaling resources, but you might encounter brief delays. Try refreshing the page in a few minutes or check our status page for any ongoing issues.</p>
             </div>
           </details>
         </div>
@@ -166,6 +195,7 @@ import Layout from '../layouts/Layout.astro';
   .section:nth-child(2) { animation-delay: 0.2s; }
   .section:nth-child(3) { animation-delay: 0.3s; }
   .section:nth-child(4) { animation-delay: 0.4s; }
+  .section:nth-child(5) { animation-delay: 0.5s; }
 
   h2 {
     font-size: 1.5rem;
@@ -190,6 +220,32 @@ import Layout from '../layouts/Layout.astro';
 
   li {
     margin-bottom: 8px;
+  }
+
+  .resource-explanation {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .resource-text {
+    flex: 1;
+  }
+
+  .cpu-visualization {
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid rgba(74, 137, 255, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn {
@@ -389,5 +445,26 @@ import Layout from '../layouts/Layout.astro';
       width: 48px;
       height: 48px;
     }
+
+    .resource-explanation {
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .cpu-visualization {
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+    }
   }
 </style>
+
+<script>
+  // Fix for Astro hydration with React components
+  document.addEventListener('DOMContentLoaded', () => {
+    const cpuVisualization = document.querySelector('.cpu-visualization');
+    if (cpuVisualization) {
+      cpuVisualization.classList.add('loaded');
+    }
+  });
+</script>
