@@ -1,0 +1,331 @@
+---
+import errorLogo from '../assets/error-icon.svg';
+---
+
+<div class="error-container">
+  <div class="glass-card">
+    <div class="error-icon">
+      <div class="pulse-circle"></div>
+      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#FF3A3A" stroke-width="2"/>
+        <path d="M12 8V12" stroke="#FF3A3A" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 16V16.5" stroke="#FF3A3A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>Oops! <span class="highlight">Error</span></h1>
+    <h2>This destination is not available</h2>
+    <p>The domain or subdomain you're trying to reach does not exist or there are no available servers at the moment.</p>
+    
+    <div class="error-details">
+      <div class="error-box">
+        <span class="detail-label">Status</span>
+        <span class="detail-value">404</span>
+      </div>
+      <div class="error-box">
+        <span class="detail-label">Type</span>
+        <span class="detail-value">Not Found</span>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="javascript:history.back()" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z" fill="currentColor"/>
+        </svg>
+        Go Back
+      </a>
+      <a href="/" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 0L16 8L14.6 9.4L9 3.8V16H7V3.8L1.4 9.4L0 8L8 0Z" fill="currentColor"/>
+        </svg>
+        Home
+      </a>
+    </div>
+  </div>
+
+  <div class="floating-shapes">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="shape shape4"></div>
+  </div>
+</div>
+
+<style>
+  .error-container {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #240303, #120101);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: 
+      0 4px 24px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.6s ease-out;
+    border: 1px solid rgba(255, 55, 55, 0.1);
+  }
+
+  .error-icon {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .pulse-circle {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(255, 58, 58, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    background: linear-gradient(90deg, #fff, #ffb3b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+
+  h1 .highlight {
+    background: linear-gradient(90deg, #ff3a3a, #ff7676);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 8px 0 16px;
+    color: #ffb3b3;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .error-details {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .error-box {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .detail-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+  }
+
+  .detail-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ff5c5c;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #ff3a3a, #ff7676);
+    color: white;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 58, 58, 0.3);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+
+  .shape1 {
+    background: rgba(255, 58, 58, 0.3);
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -50px;
+    animation: float1 25s infinite alternate ease-in-out;
+  }
+
+  .shape2 {
+    background: rgba(255, 115, 115, 0.2);
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -100px;
+    animation: float2 20s infinite alternate ease-in-out;
+  }
+
+  .shape3 {
+    background: rgba(255, 30, 30, 0.15);
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 10%;
+    animation: float3 15s infinite alternate ease-in-out;
+  }
+
+  .shape4 {
+    background: rgba(255, 90, 90, 0.15);
+    width: 250px;
+    height: 250px;
+    bottom: 10%;
+    right: 10%;
+    animation: float4 18s infinite alternate ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 80px); }
+  }
+
+  @keyframes float2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, -60px); }
+  }
+
+  @keyframes float3 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-30px, 50px); }
+  }
+
+  @keyframes float4 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, -40px); }
+  }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .error-details {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
