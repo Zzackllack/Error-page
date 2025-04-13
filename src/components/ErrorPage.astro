@@ -34,6 +34,12 @@ import errorLogo from '../assets/error-icon.svg';
         </svg>
         Go Back
       </a>
+      <a href="/infrastructure" class="btn btn-info">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1C4.136 1 1 4.136 1 8C1 11.864 4.136 15 8 15C11.864 15 15 11.864 8 1ZM8.8 11.6H7.2V7.2H8.8V11.6ZM8.8 5.6H7.2V4H8.8V5.6Z" fill="currentColor"/>
+        </svg>
+        About Our Infrastructure
+      </a>
       <a href="/" class="btn btn-secondary">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 0L16 8L14.6 9.4L9 3.8V16H7V3.8L1.4 9.4L0 8L8 0Z" fill="currentColor"/>
@@ -166,24 +172,26 @@ import errorLogo from '../assets/error-icon.svg';
 
   .action-buttons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    max-width: 360px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .btn {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 24px;
+    padding: 14px 18px;
     border-radius: 12px;
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
   }
 
   .btn-primary {
@@ -195,6 +203,17 @@ import errorLogo from '../assets/error-icon.svg';
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(255, 58, 58, 0.3);
+  }
+
+  .btn-info {
+    background: linear-gradient(135deg, #3a77ff, #76a6ff);
+    color: white;
+    border: none;
+  }
+
+  .btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 119, 255, 0.3);
   }
 
   .btn-secondary {
@@ -321,6 +340,11 @@ import errorLogo from '../assets/error-icon.svg';
 
     .action-buttons {
       flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      width: 100%;
     }
 
     .error-details {

@@ -1,0 +1,393 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="infrastructure-container">
+    <div class="glass-card">
+      <div class="card-header">
+        <div class="icon-container">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 14H8V20H2V14Z" stroke="#4A89FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 10H15V20H9V10Z" stroke="#4A89FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 4H22V20H16V4Z" stroke="#4A89FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1>Our Infrastructure</h1>
+      </div>
+
+      <div class="section">
+        <h2>How Our System Works</h2>
+        <p>
+          Our infrastructure is built on a reverse proxy architecture that routes traffic to the appropriate servers based on domain and subdomain requests. When you encounter this error page, it means one of the following:
+        </p>
+        <ul>
+          <li>The requested subdomain doesn't exist in our system</li>
+          <li>The server handling that subdomain is currently down or unavailable</li>
+          <li>Scheduled maintenance is in progress for the requested service</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>System Status</h2>
+        <p>
+          You can check the current status of all our services on our dedicated status page. This includes scheduled maintenance windows and any known issues.
+        </p>
+        <a href="https://status.zacklack.de" class="btn btn-primary" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1.33334C4.31811 1.33334 1.33334 4.31811 1.33334 8.00001C1.33334 11.6819 4.31811 14.6667 8 14.6667C11.6819 14.6667 14.6667 11.6819 14.6667 8.00001C14.6667 4.31811 11.6819 1.33334 8 1.33334Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 4V8.5L10.6667 9.83333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Check System Status
+        </a>
+      </div>
+
+      <div class="section">
+        <h2>Common Questions</h2>
+        <div class="accordion">
+          <details>
+            <summary>Why am I seeing this error page?</summary>
+            <div class="accordion-content">
+              <p>This error page is displayed when our reverse proxy can't route your request to an appropriate server. This happens when the subdomain doesn't exist, the server is down, or maintenance is in progress.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do I know if the service is down temporarily?</summary>
+            <div class="accordion-content">
+              <p>Check our status page for real-time information on all services. Any planned maintenance or known issues will be detailed there. Most temporary outages are resolved within minutes.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is the subdomain I'm trying to access valid?</summary>
+            <div class="accordion-content">
+              <p>Our system hosts numerous services across different subdomains. Check that you've entered the URL correctly, or contact support if you believe you should have access to a specific subdomain.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Contact Support</h2>
+        <p>
+          If you need further assistance or believe you're seeing this error incorrectly, please contact our support team.
+        </p>
+        <a href="mailto:support@example.com" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 4L7.33333 8L14 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="1.33334" y="2.66666" width="13.3333" height="10.6667" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          Contact Support
+        </a>
+      </div>
+
+      <div class="actions">
+        <a href="/" class="btn btn-back">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z" fill="currentColor"/>
+          </svg>
+          Back to Error Page
+        </a>
+      </div>
+    </div>
+
+    <div class="floating-shapes">
+      <div class="shape shape1"></div>
+      <div class="shape shape2"></div>
+      <div class="shape shape3"></div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .infrastructure-container {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #031b3b, #020d1b);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 
+      0 4px 24px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.6s ease-out;
+    border: 1px solid rgba(74, 137, 255, 0.1);
+    margin: 40px 0;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(74, 137, 255, 0.15);
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    background: linear-gradient(90deg, #fff, #c5d8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section {
+    margin-bottom: 36px;
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 16px;
+    color: #a3c2ff;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+  }
+
+  ul {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    padding-left: 20px;
+    margin-bottom: 16px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #3a77ff, #76a6ff);
+    color: white;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(58, 119, 255, 0.3);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .btn-back {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-back:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .accordion details {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 4px 0;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
+  .accordion summary {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-weight: 500;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s;
+  }
+
+  .accordion details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .accordion-content {
+    padding: 0 20px 20px;
+  }
+
+  .accordion-content p {
+    margin: 0;
+  }
+
+  .floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
+
+  .shape1 {
+    background: rgba(74, 137, 255, 0.2);
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    right: -100px;
+    animation: float1 25s infinite alternate ease-in-out;
+  }
+
+  .shape2 {
+    background: rgba(74, 137, 255, 0.15);
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    left: -200px;
+    animation: float2 20s infinite alternate ease-in-out;
+  }
+
+  .shape3 {
+    background: rgba(100, 151, 255, 0.1);
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 30%;
+    animation: float3 18s infinite alternate ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 80px); }
+  }
+
+  @keyframes float2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, -60px); }
+  }
+
+  @keyframes float3 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-30px, 50px); }
+  }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 30px 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .icon-container {
+      width: 48px;
+      height: 48px;
+    }
+  }
+</style>
