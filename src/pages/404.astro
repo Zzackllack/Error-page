@@ -1,0 +1,45 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import AnimatedBackground from '../components/AnimatedBackground';
+import ErrorMessage from '../components/ErrorMessage';
+import GlassCard from '../components/GlassCard';
+import AnimatedButton from '../components/AnimatedButton';
+
+const statusCode = 404;
+---
+
+<MainLayout title="404 Not Found | Zacklack">
+  <div class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden p-4">
+    <!-- Animated Background -->
+    <AnimatedBackground client:load />
+    
+    <!-- Content -->
+    <div class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Logo -->
+      <a href="https://zacklack.de" class="mb-8 transition-transform hover:scale-110 relative">
+        <img 
+          src='/src/assets/Designer.svg' 
+          class="h-20 md:h-24 rounded-full animate-pulse-slow hover:animate-none" 
+          style="box-shadow: 0 0 20px rgba(255,255,255,0.7);"
+          alt="Zacklack logo" 
+        />
+      </a>
+      
+      <!-- Error Card -->
+      <GlassCard className="p-8 md:p-12 w-full max-w-xl mb-8" client:load>
+        <ErrorMessage statusCode={statusCode} client:load />
+        
+        <div class="mt-10 flex justify-center space-x-4">
+          <AnimatedButton href="/" client:load>
+            Back to Home
+          </AnimatedButton>
+        </div>
+      </GlassCard>
+      
+      <!-- Footer -->
+      <p class="text-gray-400 mt-6 text-center text-sm">
+        &copy; {new Date().getFullYear()} Zacklack · All rights reserved
+      </p>
+    </div>
+  </div>
+</MainLayout>
