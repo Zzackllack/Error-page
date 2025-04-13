@@ -1,21 +1,46 @@
 ---
-import errorLogo from '../assets/error-icon.svg';
+import errorLogo from "../assets/error-icon.svg";
+import { NotFound } from "./ui/not-found";
 ---
 
 <div class="error-container">
+  <div class="background-404">
+    <NotFound client:load title="404" description="" isBackground={true} />
+  </div>
+
   <div class="glass-card">
     <div class="error-icon">
       <div class="pulse-circle"></div>
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#FF3A3A" stroke-width="2"/>
-        <path d="M12 8V12" stroke="#FF3A3A" stroke-width="2" stroke-linecap="round"/>
-        <path d="M12 16V16.5" stroke="#FF3A3A" stroke-width="2" stroke-linecap="round"/>
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+          stroke="#FF3A3A"
+          stroke-width="2"></path>
+        <path
+          d="M12 8V12"
+          stroke="#FF3A3A"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+        <path
+          d="M12 16V16.5"
+          stroke="#FF3A3A"
+          stroke-width="2"
+          stroke-linecap="round"></path>
       </svg>
     </div>
     <h1>Oops! <span class="highlight">Error</span></h1>
     <h2>This destination is not available</h2>
-    <p>The domain or subdomain you're trying to reach does not exist or there are no available servers at the moment.</p>
-    
+    <p>
+      The domain or subdomain you're trying to reach does not exist or there are
+      no available servers at the moment.
+    </p>
+
     <div class="error-details">
       <div class="error-box">
         <span class="detail-label">Status</span>
@@ -29,20 +54,47 @@ import errorLogo from '../assets/error-icon.svg';
 
     <div class="action-buttons">
       <a href="javascript:history.back()" class="btn btn-primary">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z" fill="currentColor"/>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z"
+            fill="currentColor"></path>
         </svg>
         Go Back
       </a>
       <a href="/infrastructure" class="btn btn-info">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 1C4.136 1 1 4.136 1 8C1 11.864 4.136 15 8 15C11.864 15 15 11.864 8 1ZM8.8 11.6H7.2V7.2H8.8V11.6ZM8.8 5.6H7.2V4H8.8V5.6Z" fill="currentColor"/>
-        </svg>
-        About Our Infrastructure
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-info-icon lucide-info"
+          ><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"
+          ></path><path d="M12 8h.01"></path></svg
+        >
+        Learn More
       </a>
       <a href="/" class="btn btn-secondary">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 0L16 8L14.6 9.4L9 3.8V16H7V3.8L1.4 9.4L0 8L8 0Z" fill="currentColor"/>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 0L16 8L14.6 9.4L9 3.8V16H7V3.8L1.4 9.4L0 8L8 0Z"
+            fill="currentColor"></path>
         </svg>
         Home
       </a>
@@ -59,7 +111,7 @@ import errorLogo from '../assets/error-icon.svg';
 
 <style>
   .error-container {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -71,6 +123,60 @@ import errorLogo from '../assets/error-icon.svg';
     padding: 20px;
   }
 
+  .background-404 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .background-404 :global(h1) {
+    font-size: 30rem !important;
+    color: transparent !important;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 0, 0, 0.8) 0%,
+      rgba(100, 0, 0, 0.05) 70%
+    ) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    margin-top: -5% !important;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.5) !important;
+    letter-spacing: -15px;
+    animation: glowPulse 3s infinite alternate;
+    transform: translateY(-10%);
+  }
+
+  @keyframes glowPulse {
+    0% {
+      text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+    100% {
+      text-shadow:
+        0 0 50px rgba(255, 0, 0, 0.8),
+        0 0 100px rgba(255, 0, 0, 0.4);
+    }
+  }
+
+  .background-404 :global(.relative) {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+  }
+
+  .background-404 :global(p),
+  .background-404 :global(div:not(.relative)) {
+    display: none !important;
+  }
+
   .glass-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
@@ -78,7 +184,7 @@ import errorLogo from '../assets/error-icon.svg';
     padding: 40px;
     width: 100%;
     max-width: 580px;
-    box-shadow: 
+    box-shadow:
       0 4px 24px rgba(0, 0, 0, 0.2),
       inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     display: flex;
@@ -306,23 +412,39 @@ import errorLogo from '../assets/error-icon.svg';
   }
 
   @keyframes float1 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 80px); }
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 80px);
+    }
   }
 
   @keyframes float2 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(80px, -60px); }
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(80px, -60px);
+    }
   }
 
   @keyframes float3 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-30px, 50px); }
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-30px, 50px);
+    }
   }
 
   @keyframes float4 {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(60px, -40px); }
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(60px, -40px);
+    }
   }
 
   @media (max-width: 768px) {
@@ -350,6 +472,11 @@ import errorLogo from '../assets/error-icon.svg';
     .error-details {
       flex-direction: column;
       gap: 12px;
+    }
+
+    .background-404 :global(h1) {
+      font-size: 20rem !important;
+      letter-spacing: -10px;
     }
   }
 </style>
