@@ -1,9 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { CpuArchitecture } from "../components/ui/cpu-architecture";
+const title = "Infrastructure Overview";
 ---
 
-<Layout>
+<Layout title={title}>
+  <title>{title}</title>
+  <meta name="description" content="Overview of our infrastructure and system status." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#020d1b" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <div class="infrastructure-container">
     <div class="glass-card">
       <div class="card-header">
@@ -186,7 +195,7 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
           <div class="error-animation">
             <div class="animation-404">
               <img
-                src="public/media/404-gif-animation.gif"
+                src="/media/404-gif-animation.gif"
                 alt="404 Animation"
                 class="gif-animation"
               />
@@ -272,7 +281,7 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at center, #031b3b, #020d1b);
+    background: radial-gradient(circle at center, rgb(3, 27, 59), #020d1b);
     position: relative;
     overflow: hidden;
     padding: 20px;
