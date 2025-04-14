@@ -24,14 +24,22 @@
 </html>
 
 <style>
-html,
+html {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #120101; /* Solid fallback for error page */
+}
+
 body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		overflow-x: hidden;
-		overflow-y: scroll;
-	}
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100%;
+	overflow-x: hidden;
+	background-color: #120101; /* Solid fallback for error page */
+}
 
 	:root {
 		--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

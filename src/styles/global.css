@@ -1,0 +1,18 @@
+/* 
+  Global styles for consistent overscroll behavior
+  This ensures that iOS and macOS devices handle overscroll correctly
+*/
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Default background color that matches the darkest color of your gradients */
+  background-color: #020d1b; /* Dark blue for most pages */
+}
+
+/* Add a specific class for error pages which have a different dark background */
+html.error-theme {
+  background-color: #120101; /* Dark red for error pages */
+}

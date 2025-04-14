@@ -1,7 +1,13 @@
 ---
 import ErrorPage from '../components/ErrorPage.astro';
 import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 ---
+
+<script>
+  // Add the error theme class to the HTML element
+  document.documentElement.classList.add('error-theme');
+</script>
 
 <Layout>
 	<ErrorPage />
