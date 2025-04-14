@@ -84,6 +84,24 @@ import { NotFound } from "./ui/not-found";
         >
         Learn More
       </a>
+      <a href="/status" class="btn btn-status">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="status-icon"
+        >
+          <path d="M12 8v4l3 3"></path>
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        System Status
+      </a>
       <a href="/" class="btn btn-secondary">
         <svg
           width="16"
@@ -321,6 +339,17 @@ import { NotFound } from "./ui/not-found";
   .btn-info:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(58, 119, 255, 0.3);
+  }
+
+  .btn-status {
+    background: linear-gradient(135deg, #2e9e5a, #3fcf8c);
+    color: white;
+    border: none;
+  }
+
+  .btn-status:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 158, 90, 0.3);
   }
 
   .btn-secondary {
