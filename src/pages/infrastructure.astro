@@ -181,7 +181,7 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
           If you need further assistance or believe you're seeing this error
           incorrectly, please contact our support team.
         </p>
-        <a href="mailto:support@example.com" class="btn btn-secondary">
+        <a href="mailto:contact@zacklack.de" class="btn btn-secondary">
           <svg
             width="16"
             height="16"
@@ -452,6 +452,12 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    position: relative;
+    outline: none;
+  }
+
+  .accordion summary::-webkit-details-marker {
+    display: none;
   }
 
   .accordion summary::after {
@@ -466,11 +472,30 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
   }
 
   .accordion-content {
-    padding: 0 20px 20px;
+    padding: 0 20px;
+    overflow: hidden;
+    will-change: height;
+    transition: height 0.3s ease-out;
+  }
+
+  .accordion details:not([open]) .accordion-content {
+    height: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .accordion details[open] .accordion-content {
+    padding-bottom: 20px;
   }
 
   .accordion-content p {
     margin: 0;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .accordion details:not([open]) .accordion-content p {
+    opacity: 0;
   }
 
   .floating-shapes {
@@ -606,5 +631,84 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
     if (cpuVisualization) {
       cpuVisualization.classList.add("loaded");
     }
+    
+    // Enhanced accordion functionality with smooth animations
+    const detailsElements = document.querySelectorAll('.accordion details');
+    let animating = false;
+    
+    // Set initial heights for all content sections
+    detailsElements.forEach(details => {
+      const content = details.querySelector('.accordion-content');
+      if (content) {
+        // Store the element's real height for animations
+        if (details.hasAttribute('open')) {
+          content.style.height = content.scrollHeight + 'px';
+        } else {
+          content.style.height = '0px';
+        }
+      }
+    });
+    
+    detailsElements.forEach(details => {
+      const summary = details.querySelector('summary');
+      const content = details.querySelector('.accordion-content');
+      
+      if (!summary || !content) return;
+      
+      // Smooth animation function
+      const animateAccordion = (isOpen: boolean) => {
+        if (animating) return;
+        animating = true;
+        
+        if (isOpen) {
+          // Opening animation
+          details.setAttribute('open', '');
+          // Force browser to recognize the element before animating
+          window.requestAnimationFrame(() => {
+            content.style.height = content.scrollHeight + 'px';
+            setTimeout(() => {
+              animating = false;
+            }, 300); // Match transition duration
+          });
+        } else {
+          // Closing animation
+          content.style.height = content.scrollHeight + 'px';
+          // Force reflow to ensure height is applied before changing it
+          content.offsetHeight;
+          content.style.height = '0px';
+          
+          // Remove 'open' attribute after animation completes
+          setTimeout(() => {
+            if (!details.hasAttribute('open')) return;
+            details.removeAttribute('open');
+            animating = false;
+          }, 300); // Match transition duration
+        }
+      };
+      
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const isCurrentlyOpen = details.hasAttribute('open');
+        
+        // Only one open at a time mode (optional)
+        detailsElements.forEach(otherDetails => {
+          if (otherDetails !== details && otherDetails.hasAttribute('open')) {
+            const otherContent = otherDetails.querySelector('.accordion-content');
+            if (otherContent) {
+              otherContent.style.height = '0px';
+              setTimeout(() => {
+                otherDetails.removeAttribute('open');
+              }, 300);
+            } else {
+              otherDetails.removeAttribute('open');
+            }
+          }
+        });
+        
+        // Toggle the current accordion with animation
+        animateAccordion(!isCurrentlyOpen);
+      });
+    });
   });
 </script>
