@@ -175,6 +175,26 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
         </div>
       </div>
 
+      <div class="section waiting-animation">
+        <h2>While You Wait</h2>
+        <p>
+          While our systems work to restore service, enjoy this brief animation.
+          Our team is likely already aware of the issue and working to resolve
+          it.
+        </p>
+        <div class="animation-container">
+          <div class="error-animation">
+            <div class="animation-404">
+              <img
+                src="public/media/404-gif-animation.gif"
+                alt="404 Animation"
+                class="gif-animation"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="section">
         <h2>Contact Support</h2>
         <p>
@@ -374,6 +394,62 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* New styles for the waiting animation section */
+  .waiting-animation {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .animation-container {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
+  .error-animation {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .animation-404 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .gif-animation {
+    max-height: 320px;
+    margin: 0 auto;
+    border-radius: 12px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  .animation-text {
+    margin-top: -20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #a3c2ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .animation-subtext {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .gif-animation {
+      max-height: 200px;
+    }
+
+    .animation-text {
+      font-size: 1.4rem;
+    }
   }
 
   .btn {
@@ -631,81 +707,82 @@ import { CpuArchitecture } from "../components/ui/cpu-architecture";
     if (cpuVisualization) {
       cpuVisualization.classList.add("loaded");
     }
-    
+
     // Enhanced accordion functionality with smooth animations
-    const detailsElements = document.querySelectorAll('.accordion details');
+    const detailsElements = document.querySelectorAll(".accordion details");
     let animating = false;
-    
+
     // Set initial heights for all content sections
-    detailsElements.forEach(details => {
-      const content = details.querySelector('.accordion-content');
+    detailsElements.forEach((details) => {
+      const content = details.querySelector(".accordion-content");
       if (content) {
         // Store the element's real height for animations
-        if (details.hasAttribute('open')) {
-          content.style.height = content.scrollHeight + 'px';
+        if (details.hasAttribute("open")) {
+          content.style.height = content.scrollHeight + "px";
         } else {
-          content.style.height = '0px';
+          content.style.height = "0px";
         }
       }
     });
-    
-    detailsElements.forEach(details => {
-      const summary = details.querySelector('summary');
-      const content = details.querySelector('.accordion-content');
-      
+
+    detailsElements.forEach((details) => {
+      const summary = details.querySelector("summary");
+      const content = details.querySelector(".accordion-content");
+
       if (!summary || !content) return;
-      
+
       // Smooth animation function
       const animateAccordion = (isOpen: boolean) => {
         if (animating) return;
         animating = true;
-        
+
         if (isOpen) {
           // Opening animation
-          details.setAttribute('open', '');
+          details.setAttribute("open", "");
           // Force browser to recognize the element before animating
           window.requestAnimationFrame(() => {
-            content.style.height = content.scrollHeight + 'px';
+            content.style.height = content.scrollHeight + "px";
             setTimeout(() => {
               animating = false;
             }, 300); // Match transition duration
           });
         } else {
           // Closing animation
-          content.style.height = content.scrollHeight + 'px';
+          content.style.height = content.scrollHeight + "px";
           // Force reflow to ensure height is applied before changing it
           content.offsetHeight;
-          content.style.height = '0px';
-          
+          content.style.height = "0px";
+
           // Remove 'open' attribute after animation completes
           setTimeout(() => {
-            if (!details.hasAttribute('open')) return;
-            details.removeAttribute('open');
+            if (!details.hasAttribute("open")) return;
+            details.removeAttribute("open");
             animating = false;
           }, 300); // Match transition duration
         }
       };
-      
-      summary.addEventListener('click', (e) => {
+
+      summary.addEventListener("click", (e) => {
         e.preventDefault();
-        
-        const isCurrentlyOpen = details.hasAttribute('open');
-        
+
+        const isCurrentlyOpen = details.hasAttribute("open");
+
         // Only one open at a time mode (optional)
-        detailsElements.forEach(otherDetails => {
-          if (otherDetails !== details && otherDetails.hasAttribute('open')) {
-            const otherContent = otherDetails.querySelector('.accordion-content');
+        detailsElements.forEach((otherDetails) => {
+          if (otherDetails !== details && otherDetails.hasAttribute("open")) {
+            const otherContent =
+              otherDetails.querySelector(".accordion-content");
             if (otherContent) {
-              otherContent.style.height = '0px';
+              otherContent.style.height = "0px";
               setTimeout(() => {
-                otherDetails.removeAttribute('open');
+                otherDetails.removeAttribute("open");
               }, 300);
             } else {
-              otherDetails.removeAttribute('open');
+              otherDetails.removeAttribute("open");
             }
           }
         });
-        
+
         // Toggle the current accordion with animation
         animateAccordion(!isCurrentlyOpen);
       });
