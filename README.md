@@ -1,48 +1,86 @@
-# Astro Starter Kit: Basics
+# 🚀 **Error Page Project** 🌌
 
+Welcome to the **Error Page** for zacklack.de, a beautifully designed and responsive error page built with **Astro**.
+
+---
+
+![Project Preview](https://kappa.lol/1p2UtJ)  
+
+---
+
+## 🌟 **Features**
+
+- **Elegant Design**: A visually stunning error page with a glassmorphism-inspired UI.
+- **Responsive Layout**: Fully optimized for desktop and mobile devices.
+- **System Status Integration**: Embedded status monitoring powered by Better Stack.
+
+---
+
+## 🛠️ **Getting Started**
+
+Follow these steps to set up and run the project locally:
+
+### 1️⃣ **Clone the Repository**
 ```sh
-npm create astro@latest -- --template basics
+git clone https://github.com/zzackllack/error-page.git
+cd error-page
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+### 2️⃣ **Install Dependencies**
+```sh
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### 3️⃣ **Run the Development Server**
+```sh
+npm run dev
+```
+Your site will be live at `http://localhost:4321`.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🧞 **Available Commands**
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run build`           | Builds the production site to `./dist/`          |
+| `npm run preview`         | Previews the production build locally            |
+| `npm run astro ...`       | Runs Astro CLI commands                          |
+| `npm run astro -- --help` | Displays help for Astro CLI                      |
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🌐 **Live Demo**
+
+Check out the live demo of the project:  
+[**Live Demo Link**](https://error.zacklack.de)
+
+---
+
+## 🛡️ **System Status**
+
+This project integrates with **Better Stack** for real-time system monitoring.  
+![System Status](https://kappa.lol/Zj2puv)
+
+---
+
+## 📜 **License**
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 💬 **Contact**
+
+For questions or feedback, feel free to reach out:
+
+- **Email**: [contact@zacklack.de](mailto:contact@zacklack.de)
+
+---
+
+## 👀 **Learn More**
+
+- [Astro Documentation](https://docs.astro.build)
+- [Astro Discord Community](https://astro.build/chat)
