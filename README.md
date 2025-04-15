@@ -1,4 +1,4 @@
-# 🚀 **Error Page Project** 🌌
+# 🚀 **Error Page Project**
 
 Welcome to the **Error Page** for zacklack.de, a beautifully designed and responsive error page built with **Astro**.
 
