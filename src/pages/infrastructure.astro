@@ -247,31 +247,33 @@ const title = "Infrastructure Overview";
           If you need further assistance or believe you're seeing this error
           incorrectly, please contact our support team.
         </p>
-        <a href="mailto:contact@zacklack.de" class="btn btn-secondary">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2 4L7.33333 8L14 4"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <rect
-              x="1.33334"
-              y="2.66666"
-              width="13.3333"
-              height="10.6667"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.5"></rect>
-          </svg>
-          Contact Support
-        </a>
+        <div class="contact-button-container">
+          <a href="mailto:contact@zacklack.de" class="btn btn-secondary">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 4L7.33333 8L14 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <rect
+                x="1.33334"
+                y="2.66666"
+                width="13.3333"
+                height="10.6667"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.5"></rect>
+            </svg>
+            Contact Support
+          </a>
+        </div>
       </div>
 
       <div class="actions">
@@ -307,7 +309,7 @@ const title = "Infrastructure Overview";
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto; /* Explicitly enable vertical scrolling */
     background-color: #020d1b; /* Solid dark blue fallback */
   }
 
@@ -317,12 +319,13 @@ const title = "Infrastructure Overview";
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to flex-start to enable scrolling */
     background: radial-gradient(circle at center, rgb(3, 27, 59), #020d1b);
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    overflow: visible; /* Changed from hidden to visible to allow content overflow */
     padding: 20px;
     -webkit-overflow-scrolling: touch; /* Improve scroll on iOS */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
   }
 
   .glass-card {
@@ -510,6 +513,7 @@ const title = "Infrastructure Overview";
     text-decoration: none;
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in width */
   }
 
   .btn svg {
@@ -728,7 +732,11 @@ const title = "Infrastructure Overview";
 
   @media (max-width: 768px) {
     .glass-card {
-      padding: 30px 20px;
+      padding: 25px 15px; /* Reduced padding */
+      margin: 10px; /* Add margin on all sides */
+      max-width: calc(100% - 20px); /* Ensure card doesn't overflow screen width */
+      box-sizing: border-box; /* Include padding in width calculation */
+      overflow: hidden; /* Ensure content doesn't overflow */
     }
 
     h1 {
@@ -739,6 +747,7 @@ const title = "Infrastructure Overview";
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
+      margin-bottom: 16px; /* Reduce bottom margin */
     }
 
     .icon-container {
@@ -748,13 +757,40 @@ const title = "Infrastructure Overview";
 
     .resource-explanation {
       flex-direction: column;
-      padding: 16px;
+      padding: 12px; /* Reduced padding */
+      gap: 16px; /* Reduced gap */
     }
 
     .cpu-visualization {
       width: 100%;
       padding: 0;
       overflow: hidden;
+      height: auto; /* Let height adjust naturally */
+    }
+
+    .buttons-container {
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch; /* Make buttons fill container width */
+    }
+
+    .contact-button-container {
+      justify-content: stretch; /* Ensure button takes full width */
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 16px; /* Reduced padding */
+      font-size: 0.85rem; /* Reduced font size */
+    }
+
+    .actions {
+      justify-content: center; /* Center the back button on mobile */
+      width: 100%; /* Ensure full width */
+    }
+
+    .section {
+      margin-bottom: 24px; /* Reduced bottom margin */
     }
   }
 </style>
@@ -846,5 +882,11 @@ const title = "Infrastructure Overview";
         animateAccordion(!isCurrentlyOpen);
       });
     });
+
+    // Add this to ensure proper scrolling on mobile
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "auto";
+    }, 100);
   });
 </script>

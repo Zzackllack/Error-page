@@ -9,10 +9,24 @@ html {
   margin: 0;
   padding: 0;
   /* Default background color that matches the darkest color of your gradients */
-  background-color: #020d1b; /* Dark blue for most pages */
+  background-color: #020d1b;
+  /* Dark blue for most pages */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 /* Add a specific class for error pages which have a different dark background */
 html.error-theme {
-  background-color: #120101; /* Dark red for error pages */
+  background-color: #120101;
+  /* Dark red for error pages */
+  min-height: 100%;
+  /* Ensure it covers the full viewport */
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }

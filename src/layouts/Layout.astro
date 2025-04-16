@@ -1,52 +1,74 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/fav/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="/fav/favicon.svg" />
-		<link rel="shortcut icon" href="/fav/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png" />
-		<meta name="apple-mobile-web-app-title" content="Error" />
-		<link rel="manifest" href="/fav/site.webmanifest" />
-		<script defer src="https://cloud.umami.is/script.js" data-website-id="02678dcd-988c-454d-82f5-736231784060"></script>
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preconnect" href="https://status.zacklack.de" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-		<title>Error - Service Unavailable</title>
-		<meta name="description" content="The requested service is unavailable or does not exist." />
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/fav/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/fav/favicon.svg" />
+    <link rel="shortcut icon" href="/fav/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/fav/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="Error" />
+    <link rel="manifest" href="/fav/site.webmanifest" />
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="02678dcd-988c-454d-82f5-736231784060"></script>
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://status.zacklack.de" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Error - Service Unavailable</title>
+    <meta
+      name="description"
+      content="The requested service is unavailable or does not exist."
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-html {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #120101; /* Solid fallback for error page */
-}
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #120101; /* Solid fallback for error page */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
 
-body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	min-height: 100%;
-	overflow-x: hidden;
-	background-color: #120101; /* Solid fallback for error page */
-}
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    background-color: #120101; /* Solid fallback for error page */
+    display: flex; /* Ensure body takes full height */
+    flex-direction: column; /* Stack children vertically */
+  }
 
-	:root {
-		--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	}
+  :root {
+    --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+  }
 
-	* {
-		box-sizing: border-box;
-		font-family: var(--font-primary);
-	}
+  * {
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+  }
 </style>

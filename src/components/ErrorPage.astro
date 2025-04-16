@@ -140,6 +140,7 @@ import { NotFound } from "./ui/not-found";
     overflow: hidden;
     padding: 20px;
     -webkit-overflow-scrolling: touch; /* Improve scroll on iOS */
+    box-sizing: border-box; /* Ensure padding is included in the height */
   }
 
   .background-404 {
@@ -302,6 +303,7 @@ import { NotFound } from "./ui/not-found";
     max-width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 8px; /* Add some bottom margin */
   }
 
   .btn {
@@ -317,6 +319,7 @@ import { NotFound } from "./ui/not-found";
     transition: all 0.2s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     min-width: 160px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
   }
 
   .btn-primary {
@@ -480,6 +483,10 @@ import { NotFound } from "./ui/not-found";
   @media (max-width: 768px) {
     .glass-card {
       padding: 30px 20px;
+      margin: 20px; /* Add margin around the card */
+      max-width: calc(
+        100% - 40px
+      ); /* Ensure card doesn't overflow screen width */
     }
 
     h1 {
@@ -493,15 +500,20 @@ import { NotFound } from "./ui/not-found";
     .action-buttons {
       flex-direction: column;
       align-items: stretch;
+      gap: 10px; /* Reduce gap between stacked buttons */
     }
 
     .btn {
       width: 100%;
+      min-width: 0; /* Remove min-width constraint on mobile */
+      padding: 12px 16px; /* Slightly reduce padding */
+      font-size: 0.85rem; /* Slightly reduce font size */
     }
 
     .error-details {
       flex-direction: column;
       gap: 12px;
+      margin-bottom: 24px; /* Increase bottom margin for more space */
     }
 
     .background-404 :global(h1) {
