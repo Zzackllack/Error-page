@@ -2,19 +2,13 @@
 
 Welcome to the **Error Page** for zacklack.de, a beautifully designed and responsive error page built with **Astro**.
 
----
-
 ![Project Preview](https://kappa.lol/1p2UtJ)  
-
----
 
 ## 🌟 **Features**
 
 - **Elegant Design**: A visually stunning error page with a glassmorphism-inspired UI.
 - **Responsive Layout**: Fully optimized for desktop and mobile devices.
 - **System Status Integration**: Embedded status monitoring powered by Better Stack.
-
----
 
 ## 🛠️ **Getting Started**
 
@@ -37,7 +31,6 @@ npm run dev
 ```
 Your site will be live at `http://localhost:4321`.
 
----
 
 ## 🧞 **Available Commands**
 
@@ -50,35 +43,21 @@ Your site will be live at `http://localhost:4321`.
 | `npm run astro ...`       | Runs Astro CLI commands                          |
 | `npm run astro -- --help` | Displays help for Astro CLI                      |
 
----
 
 ## 🌐 **Live Demo**
 
 Check out the live demo of the project:  
 [**Live Demo Link**](https://error.zacklack.de)
 
----
-
 ## 🛡️ **System Status**
 
 This project integrates with **Better Stack** for real-time system monitoring.  
 ![System Status](https://kappa.lol/Zj2puv)
 
----
 
 ## 📜 **License**
 
-This project is licensed under the [MIT License](./LICENSE).
-
----
-
-## 💬 **Contact**
-
-For questions or feedback, feel free to reach out:
-
-- **Email**: [contact@zacklack.de](mailto:contact@zacklack.de)
-
----
+This project is licensed under the [BSD 3-Clause License](./LICENSE).
 
 ## 👀 **Learn More**
 
