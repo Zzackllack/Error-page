@@ -15,9 +15,10 @@ const title = "Infrastructure Overview";
 
   <div class="infrastructure-container">
     <div class="glass-card">
-      <div class="card-header">
-        <div class="icon-container">
+      <div class="card-header fade-in">
+        <div class="icon-container pulse-glow-blue">
           <svg
+            class="icon-wiggle"
             width="32"
             height="32"
             viewBox="0 0 24 24"
@@ -44,10 +45,10 @@ const title = "Infrastructure Overview";
               stroke-linejoin="round"></path>
           </svg>
         </div>
-        <h1>Our Infrastructure</h1>
+        <h1 class="text-shimmer">Our Infrastructure</h1>
       </div>
 
-      <div class="section">
+      <div class="section fade-in-up delay-100">
         <h2>How Our System Works</h2>
         <p>
           Our infrastructure is built on a reverse proxy architecture that
@@ -55,7 +56,7 @@ const title = "Infrastructure Overview";
           subdomain requests. When you encounter this error page, it means one
           of the following:
         </p>
-        <ul>
+        <ul class="stagger-children">
           <li>The requested subdomain doesn't exist in our system</li>
           <li>
             The server handling that subdomain is currently down or unavailable
@@ -66,7 +67,7 @@ const title = "Infrastructure Overview";
         </ul>
       </div>
 
-      <div class="section server-load-section">
+      <div class="section server-load-section fade-in-up delay-200">
         <h2>Server Resource Management</h2>
         <div class="resource-explanation">
           <div class="resource-text">
@@ -74,7 +75,7 @@ const title = "Infrastructure Overview";
               Sometimes our servers may be temporarily overloaded due to high
               traffic or resource-intensive operations. When this happens:
             </p>
-            <ul>
+            <ul class="stagger-children">
               <li>The reverse proxy may temporarily refuse new connections</li>
               <li>
                 Requests might time out while waiting for server resources
@@ -91,18 +92,19 @@ const title = "Infrastructure Overview";
               manual intervention.
             </p>
           </div>
-          <div class="cpu-visualization">
+          <div class="cpu-visualization hover-glow-blue">
             <CpuArchitecture
               client:load
               width="280px"
               height="180px"
               text="CPU"
+              enhancedEffects={true}
             />
           </div>
         </div>
       </div>
 
-      <div class="section">
+      <div class="section fade-in-up delay-300">
         <h2>System Status</h2>
         <p>
           You can check the current status of all our services on our dedicated
@@ -112,7 +114,7 @@ const title = "Infrastructure Overview";
         <div class="buttons-container">
           <a
             href="/status"
-            class="btn btn-primary"
+            class="btn btn-primary btn-gradient-shift hover-float"
           >
             <svg
               width="16"
@@ -120,6 +122,7 @@ const title = "Infrastructure Overview";
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="arrow-right-bounce"
             >
               <path
                 d="M8 1.33334C4.31811 1.33334 1.33334 4.31811 1.33334 8.00001C1.33334 11.6819 4.31811 14.6667 8 14.6667C11.6819 14.6667 14.6667 11.6819 14.6667 8.00001C14.6667 4.31811 11.6819 1.33334 8 1.33334Z"
@@ -135,7 +138,7 @@ const title = "Infrastructure Overview";
           </a>
           <a
             href="https://status.zacklack.de"
-            class="btn btn-secondary"
+            class="btn btn-secondary hover-float"
             target="_blank"
           >
             <svg
@@ -144,6 +147,7 @@ const title = "Infrastructure Overview";
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="arrow-up-bounce"
             >
               <path
                 d="M10 2H12.6667C13.0203 2 13.3594 2.14048 13.6095 2.39052C13.8595 2.64057 14 2.97971 14 3.33333V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V3.33333C2 2.97971 2.14048 2.64057 2.39052 2.39052C2.64057 2.14048 2.97971 2 3.33333 2H6"
@@ -172,7 +176,7 @@ const title = "Infrastructure Overview";
         </div>
       </div>
 
-      <div class="section">
+      <div class="section fade-in-up delay-400">
         <h2>Common Questions</h2>
         <div class="accordion">
           <details>
@@ -221,7 +225,7 @@ const title = "Infrastructure Overview";
         </div>
       </div>
 
-      <div class="section waiting-animation">
+      <div class="section waiting-animation fade-in-up delay-500">
         <h2>While You Wait</h2>
         <p>
           While our systems work to restore service, enjoy this brief animation.
@@ -241,14 +245,14 @@ const title = "Infrastructure Overview";
         </div>
       </div>
 
-      <div class="section">
+      <div class="section fade-in-up delay-600">
         <h2>Contact Support</h2>
         <p>
           If you need further assistance or believe you're seeing this error
           incorrectly, please contact our support team.
         </p>
         <div class="contact-button-container">
-          <a href="mailto:contact@zacklack.de" class="btn btn-secondary">
+          <a href="mailto:contact@zacklack.de" class="btn btn-secondary hover-float">
             <svg
               width="16"
               height="16"
@@ -277,13 +281,14 @@ const title = "Infrastructure Overview";
       </div>
 
       <div class="actions">
-        <a href="/" class="btn btn-back">
+        <a href="/" class="btn btn-back hover-float">
           <svg
             width="16"
             height="16"
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="arrow-left-bounce"
           >
             <path
               d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z"
@@ -295,9 +300,9 @@ const title = "Infrastructure Overview";
     </div>
 
     <div class="floating-shapes">
-      <div class="shape shape1"></div>
-      <div class="shape shape2"></div>
-      <div class="shape shape3"></div>
+      <div class="shape shape1 float"></div>
+      <div class="shape shape2 float"></div>
+      <div class="shape shape3 float"></div>
     </div>
   </div>
 </Layout>
@@ -796,12 +801,17 @@ const title = "Infrastructure Overview";
 </style>
 
 <script>
+  import { initStaggeredAnimation } from "../components/animation-helper";
+  
   // Fix for Astro hydration with React components
   document.addEventListener("DOMContentLoaded", () => {
     const cpuVisualization = document.querySelector(".cpu-visualization");
     if (cpuVisualization) {
       cpuVisualization.classList.add("loaded");
     }
+
+    // Initialize staggered animations for list items
+    initStaggeredAnimation(".stagger-children", 100, 300);
 
     // Enhanced accordion functionality with smooth animations
     const detailsElements = document.querySelectorAll(".accordion details");

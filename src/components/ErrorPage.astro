@@ -17,6 +17,7 @@ import { NotFound } from "./ui/not-found";
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        class="animate-wobble"
       >
         <path
           d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
@@ -34,32 +35,33 @@ import { NotFound } from "./ui/not-found";
           stroke-linecap="round"></path>
       </svg>
     </div>
-    <h1>Oops! <span class="highlight">Error</span></h1>
-    <h2>This destination is not available</h2>
-    <p>
+    <h1 class="text-shimmer">Oops! <span class="highlight">Error</span></h1>
+    <h2 class="slide-in-right">This destination is not available</h2>
+    <p class="fade-in-up">
       The domain or subdomain you're trying to reach does not exist or there are
       no available servers at the moment.
     </p>
 
-    <div class="error-details">
+    <div class="error-details pop-in">
       <div class="error-box">
         <span class="detail-label">Status</span>
-        <span class="detail-value">404</span>
+        <span class="detail-value glow-pulse">404</span>
       </div>
       <div class="error-box">
         <span class="detail-label">Type</span>
-        <span class="detail-value">Not Found</span>
+        <span class="detail-value glow-pulse">Not Found</span>
       </div>
     </div>
 
-    <div class="action-buttons">
-      <a href="javascript:history.back()" class="btn btn-primary">
+    <div class="action-buttons fade-in-up">
+      <a href="javascript:history.back()" class="btn btn-primary hover-float">
         <svg
           width="16"
           height="16"
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="arrow-bounce"
         >
           <path
             d="M8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825L9.425 14.6L8 16Z"
@@ -67,7 +69,7 @@ import { NotFound } from "./ui/not-found";
         </svg>
         Go Back
       </a>
-      <a href="/infrastructure" class="btn btn-info">
+      <a href="/infrastructure" class="btn btn-info hover-float">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -78,13 +80,13 @@ import { NotFound } from "./ui/not-found";
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-info-icon lucide-info"
+          class="lucide lucide-info-icon lucide-info spin-slow"
           ><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"
           ></path><path d="M12 8h.01"></path></svg
         >
         Learn More
       </a>
-      <a href="/status" class="btn btn-status">
+      <a href="/status" class="btn btn-status hover-float">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -95,20 +97,21 @@ import { NotFound } from "./ui/not-found";
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="status-icon"
+          class="status-icon status-clock"
         >
           <path d="M12 8v4l3 3"></path>
           <circle cx="12" cy="12" r="10"></circle>
         </svg>
         System Status
       </a>
-      <a href="/" class="btn btn-secondary">
+      <a href="/" class="btn btn-secondary hover-float">
         <svg
           width="16"
           height="16"
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="arrow-up-bounce"
         >
           <path
             d="M8 0L16 8L14.6 9.4L9 3.8V16H7V3.8L1.4 9.4L0 8L8 0Z"
@@ -124,6 +127,22 @@ import { NotFound } from "./ui/not-found";
     <div class="shape shape2"></div>
     <div class="shape shape3"></div>
     <div class="shape shape4"></div>
+  </div>
+  
+  <!-- Add animated particles -->
+  <div class="particles">
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+    <div class="particle p6"></div>
+    <div class="particle p7"></div>
+    <div class="particle p8"></div>
+    <div class="particle p9"></div>
+    <div class="particle p10"></div>
+    <div class="particle p11"></div>
+    <div class="particle p12"></div>
   </div>
 </div>
 
@@ -214,11 +233,30 @@ import { NotFound } from "./ui/not-found";
     z-index: 2;
     animation: fadeIn 0.6s ease-out;
     border: 1px solid rgba(255, 55, 55, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 1px rgba(255, 55, 55, 0.2);
+    transform: translateY(-2px);
   }
 
   .error-icon {
     position: relative;
     margin-bottom: 24px;
+  }
+
+  .animate-wobble {
+    animation: wobble 6s ease-in-out infinite;
+  }
+
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(5deg); }
   }
 
   .pulse-circle {
@@ -244,6 +282,28 @@ import { NotFound } from "./ui/not-found";
     text-align: center;
   }
 
+  .text-shimmer {
+    position: relative;
+    background-image: linear-gradient(
+      90deg, 
+      #fff 0%, 
+      #ffb3b3 20%, 
+      #fff 40%, 
+      #ffb3b3 60%, 
+      #fff 80%, 
+      #ffb3b3 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    to { background-position: 200% center; }
+  }
+
   h1 .highlight {
     background: linear-gradient(90deg, #ff3a3a, #ff7676);
     -webkit-background-clip: text;
@@ -257,6 +317,22 @@ import { NotFound } from "./ui/not-found";
     color: #ffb3b3;
     text-align: center;
   }
+  
+  .slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 
   p {
     font-size: 1rem;
@@ -265,12 +341,47 @@ import { NotFound } from "./ui/not-found";
     text-align: center;
     margin-bottom: 32px;
   }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 
   .error-details {
     display: flex;
     gap: 16px;
     width: 100%;
     margin-bottom: 32px;
+  }
+  
+  .pop-in {
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  @keyframes popIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   .error-box {
@@ -282,6 +393,13 @@ import { NotFound } from "./ui/not-found";
     flex-direction: column;
     align-items: center;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .error-box:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   }
 
   .detail-label {
@@ -294,6 +412,19 @@ import { NotFound } from "./ui/not-found";
     font-size: 1.25rem;
     font-weight: 600;
     color: #ff5c5c;
+  }
+  
+  .glow-pulse {
+    animation: glowPulseText 2s infinite alternate;
+  }
+  
+  @keyframes glowPulseText {
+    from {
+      text-shadow: 0 0 5px rgba(255, 92, 92, 0.5);
+    }
+    to {
+      text-shadow: 0 0 15px rgba(255, 92, 92, 0.8), 0 0 5px rgba(255, 255, 255, 0.3);
+    }
   }
 
   .action-buttons {
@@ -320,12 +451,45 @@ import { NotFound } from "./ui/not-found";
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     min-width: 160px;
     box-sizing: border-box; /* Ensure padding is included in the width */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+  .btn:hover::after {
+    opacity: 1;
+    transform: translate3d(-25%, -25%, 0) scale(0.5);
+  }
+  
+  .hover-float:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 
   .btn-primary {
     background: linear-gradient(135deg, #ff3a3a, #ff7676);
     color: white;
     border: none;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .btn-primary:hover {
@@ -337,6 +501,9 @@ import { NotFound } from "./ui/not-found";
     background: linear-gradient(135deg, #3a77ff, #76a6ff);
     color: white;
     border: none;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    animation-delay: 0.5s;
   }
 
   .btn-info:hover {
@@ -348,6 +515,9 @@ import { NotFound } from "./ui/not-found";
     background: linear-gradient(135deg, #2e9e5a, #3fcf8c);
     color: white;
     border: none;
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    animation-delay: 1s;
   }
 
   .btn-status:hover {
@@ -364,6 +534,45 @@ import { NotFound } from "./ui/not-found";
   .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
+  }
+  
+  .arrow-bounce {
+    animation: arrowBounce 2s infinite;
+  }
+  
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+  }
+  
+  .arrow-up-bounce {
+    animation: arrowUpBounce 2s infinite;
+  }
+  
+  @keyframes arrowUpBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  
+  .spin-slow {
+    animation: spinSlow 8s linear infinite;
+    transform-origin: center;
+  }
+  
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .status-clock {
+    animation: clockTick 2s linear infinite;
+    transform-origin: center;
+  }
+  
+  @keyframes clockTick {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
   }
 
   .floating-shapes {
@@ -416,6 +625,63 @@ import { NotFound } from "./ui/not-found";
     bottom: 10%;
     right: 10%;
     animation: float4 18s infinite alternate ease-in-out;
+  }
+  
+  /* Particles */
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ff3a3a;
+    border-radius: 50%;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10, .p11, .p12 {
+    box-shadow: 0 0 10px 2px rgba(255, 58, 58, 0.4);
+  }
+  
+  .p1 { animation: particleFloat 25s infinite linear; top: 10%; left: 10%; }
+  .p2 { animation: particleFloat 30s infinite linear; top: 20%; left: 90%; }
+  .p3 { animation: particleFloat 22s infinite linear; top: 80%; left: 20%; }
+  .p4 { animation: particleFloat 28s infinite linear; top: 40%; left: 30%; }
+  .p5 { animation: particleFloat 35s infinite linear; top: 65%; left: 85%; }
+  .p6 { animation: particleFloat 26s infinite linear; top: 75%; left: 40%; }
+  .p7 { animation: particleFloat 32s infinite linear; top: 50%; left: 60%; }
+  .p8 { animation: particleFloat 40s infinite linear; top: 15%; left: 45%; }
+  .p9 { animation: particleFloat 38s infinite linear; top: 35%; left: 75%; }
+  .p10 { animation: particleFloat 20s infinite linear; top: 85%; left: 15%; }
+  .p11 { animation: particleFloat 22s infinite linear; top: 30%; left: 5%; }
+  .p12 { animation: particleFloat 45s infinite linear; top: 60%; left: 90%; }
+  
+  @keyframes particleFloat {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(50px, 50px) scale(1.2);
+    }
+    50% {
+      transform: translate(0, 100px) scale(0.8);
+    }
+    75% {
+      transform: translate(-50px, 50px) scale(1.2);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
   }
 
   @keyframes pulse {

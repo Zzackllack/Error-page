@@ -11,6 +11,7 @@ export interface CpuArchitectureSvgProps {
   animateText?: boolean;
   animateLines?: boolean;
   animateMarkers?: boolean;
+  enhancedEffects?: boolean;
 }
 
 const CpuArchitecture = ({
@@ -23,10 +24,11 @@ const CpuArchitecture = ({
   lineMarkerSize = 18,
   animateLines = true,
   animateMarkers = true,
+  enhancedEffects = true,
 }: CpuArchitectureSvgProps) => {
   return (
     <svg
-      className={cn("text-muted", className)}
+      className={cn("text-muted cpu-arch-svg", className)}
       width={width}
       height={height}
       viewBox="0 0 200 100"
@@ -106,6 +108,19 @@ const CpuArchitecture = ({
             keyTimes="0;1"
           />
         </circle>
+        {enhancedEffects && (
+          <circle className="flow-particle flow-p1-3" r="0.8" fill="url(#cpu-blue-grad)">
+            <animateMotion
+              path="M 10 20 h 79.5 q 5 0 5 5 v 30"
+              dur="3s"
+              begin="2s"
+              repeatCount="indefinite"
+              calcMode="linear"
+              keyPoints="0;1"
+              keyTimes="0;1"
+            />
+          </circle>
+        )}
       </g>
 
       {/* Flow particles - Path 2 */}
@@ -131,6 +146,19 @@ const CpuArchitecture = ({
             keyTimes="0;1"
           />
         </circle>
+        {enhancedEffects && (
+          <circle className="flow-particle flow-p2-3" r="0.9" fill="url(#cpu-yellow-grad)">
+            <animateMotion
+              path="M 180 10 h -69.7 q -5 0 -5 5 v 30"
+              dur="2.8s"
+              begin="0.7s"
+              repeatCount="indefinite"
+              calcMode="linear"
+              keyPoints="0;1"
+              keyTimes="0;1"
+            />
+          </circle>
+        )}
       </g>
 
       {/* Flow particles - Path 3 */}
@@ -145,6 +173,19 @@ const CpuArchitecture = ({
             keyTimes="0;1"
           />
         </circle>
+        {enhancedEffects && (
+          <circle className="flow-particle flow-p3-2" r="0.9" fill="url(#cpu-pinkish-grad)">
+            <animateMotion
+              path="M 130 20 v 21.8 q 0 5 -5 5 h -10"
+              dur="2.2s"
+              begin="1.1s"
+              repeatCount="indefinite"
+              calcMode="linear"
+              keyPoints="0;1"
+              keyTimes="0;1"
+            />
+          </circle>
+        )}
       </g>
 
       {/* Flow particles - Path 4 */}
@@ -184,6 +225,19 @@ const CpuArchitecture = ({
             keyTimes="0;1"
           />
         </circle>
+        {enhancedEffects && (
+          <circle className="flow-particle flow-p5-2" r="0.9" fill="url(#cpu-green-grad)">
+            <animateMotion
+              path="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20"
+              dur="3.5s"
+              begin="1.7s"
+              repeatCount="indefinite"
+              calcMode="linear"
+              keyPoints="0;1"
+              keyTimes="0;1"
+            />
+          </circle>
+        )}
       </g>
 
       {/* Flow particles - Path 6 */}
@@ -309,7 +363,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-pinkish-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="4;7;4" 
+              dur="3.2s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* 4. White Light */}
       <g mask="url(#cpu-mask-4)">
@@ -319,7 +385,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-white-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="5;8;5" 
+              dur="2.9s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* 5. Green Light */}
       <g mask="url(#cpu-mask-5)">
@@ -329,7 +407,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-green-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="4;7;4" 
+              dur="3.4s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* 6. Orange Light */}
       <g mask="url(#cpu-mask-6)">
@@ -339,7 +429,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-orange-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="4;6;4" 
+              dur="2.7s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* 7. Cyan Light */}
       <g mask="url(#cpu-mask-7)">
@@ -349,7 +451,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-cyan-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="3;7;3" 
+              dur="3.5s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* 8. Rose Light */}
       <g mask="url(#cpu-mask-8)">
@@ -359,7 +473,19 @@ const CpuArchitecture = ({
           cy="0"
           r="8"
           fill="url(#cpu-rose-grad)"
-        />
+        >
+          {enhancedEffects && (
+            <animate 
+              attributeName="r" 
+              values="4;7;4" 
+              dur="3.1s" 
+              repeatCount="indefinite" 
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
+        </circle>
       </g>
       {/* CPU Box */}
       <g>
@@ -427,6 +553,7 @@ const CpuArchitecture = ({
           rx="2"
           fill="#181818"
           filter="url(#cpu-light-shadow)"
+          className="cpu-rect"
         >
           <animate 
             attributeName="fill" 
@@ -437,6 +564,17 @@ const CpuArchitecture = ({
             keyTimes="0; 0.5; 1"
             keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
           />
+          {enhancedEffects && (
+            <animate 
+              attributeName="height" 
+              values="20;20.5;20" 
+              dur="3s" 
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
         </rect>
         {/* CPU Text */}
         <text
@@ -446,9 +584,52 @@ const CpuArchitecture = ({
           fill={animateText ? "url(#cpu-text-gradient)" : "white"}
           fontWeight="600"
           letterSpacing="0.05em"
+          className="cpu-text"
         >
           {text}
+          {enhancedEffects && (
+            <animate 
+              attributeName="opacity" 
+              values="0.9;1;0.9" 
+              dur="2s" 
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          )}
         </text>
+        
+        {/* CPU pulse light effect */}
+        {enhancedEffects && (
+          <circle 
+            cx="100"
+            cy="50"
+            r="20"
+            fill="url(#cpu-pulse-gradient)"
+            opacity="0.3"
+            className="cpu-pulse"
+          >
+            <animate 
+              attributeName="r" 
+              values="16;22;16" 
+              dur="3s" 
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+            <animate 
+              attributeName="opacity" 
+              values="0.1;0.3;0.1" 
+              dur="3s" 
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0; 0.5; 1"
+              keySplines="0.5 0 0.5 1; 0.5 0 0.5 1"
+            />
+          </circle>
+        )}
       </g>
       {/* Masks */}
       <defs>
@@ -629,6 +810,12 @@ const CpuArchitecture = ({
             />
           </stop>
         </linearGradient>
+        {/* CPU Pulse Gradient */}
+        <radialGradient id="cpu-pulse-gradient" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="#4080FF" stopOpacity="0.8" />
+          <stop offset="70%" stopColor="#4080FF" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#4080FF" stopOpacity="0" />
+        </radialGradient>
       </defs>
     </svg>
   );
