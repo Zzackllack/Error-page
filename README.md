@@ -54,7 +54,7 @@ Check out the live demo of the project:
 ## 🛡️ **System Status**
 
 This project integrates with **Better Stack** for real-time system monitoring.  
-![System Status](https://kappa.lol/Zj2puv)
+![System Status](./docs/img/better-stack.png)
 
 ## 📜 **License**
 
