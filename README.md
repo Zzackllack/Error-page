@@ -2,7 +2,7 @@
 
 Welcome to the **Error Page** for zacklack.de, a beautifully designed and responsive error page built with **Astro**.
 
-![Project Preview](https://kappa.lol/1p2UtJ)  
+![Project Preview](./docs/img/preview.png)  
 
 ## 🌟 **Features**
 
@@ -15,22 +15,25 @@ Welcome to the **Error Page** for zacklack.de, a beautifully designed and respon
 Follow these steps to set up and run the project locally:
 
 ### 1️⃣ **Clone the Repository**
+
 ```sh
 git clone https://github.com/zzackllack/error-page.git
 cd error-page
 ```
 
 ### 2️⃣ **Install Dependencies**
+
 ```sh
 npm install
 ```
 
 ### 3️⃣ **Run the Development Server**
+
 ```sh
 npm run dev
 ```
-Your site will be live at `http://localhost:4321`.
 
+Your site will be live at `http://localhost:4321`.
 
 ## 🧞 **Available Commands**
 
@@ -43,7 +46,6 @@ Your site will be live at `http://localhost:4321`.
 | `npm run astro ...`       | Runs Astro CLI commands                          |
 | `npm run astro -- --help` | Displays help for Astro CLI                      |
 
-
 ## 🌐 **Live Demo**
 
 Check out the live demo of the project:  
@@ -53,7 +55,6 @@ Check out the live demo of the project:
 
 This project integrates with **Better Stack** for real-time system monitoring.  
 ![System Status](https://kappa.lol/Zj2puv)
-
 
 ## 📜 **License**
 
