@@ -8,7 +8,7 @@ Welcome to the **Error Page** for zacklack.de, a beautifully designed and respon
 
 - **Elegant Design**: A visually stunning error page with a glassmorphism-inspired UI.
 - **Responsive Layout**: Fully optimized for desktop and mobile devices.
-- **System Status Integration**: Embedded status monitoring powered by Better Stack.
+- **System Status Integration**: Embedded status monitoring powered by Uptime Kuma.
 
 ## 🛠️ **Getting Started**
 
@@ -53,7 +53,7 @@ Check out the live demo of the project:
 
 ## 🛡️ **System Status**
 
-This project integrates with **Better Stack** for real-time system monitoring.  
+This project integrates with **Uptime Kuma** for real-time system monitoring.  
 ![System Status](./docs/img/better-stack.png)
 
 ## 📜 **License**
